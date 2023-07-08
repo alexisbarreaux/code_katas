@@ -6,3 +6,7 @@ Erreur car il faut gérer le fait qu'ici c'est pas juste une recherche dichotomi
 ce qui inclut le fait de décaler les valeurs renvoyées.
 
 Version récurrente assez naturelle et concise.
+
+## Second method
+
+boucle infinie (a-b//2 au lieu de a+b//2)
