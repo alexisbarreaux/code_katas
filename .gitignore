@@ -160,9 +160,9 @@ cython_debug/
 #.idea/
 
 # Venv
-*/lib
-*/lib64
-*/share
-*/bin
-*/include
+lib
+lib64
+share
+bin
+include
 pyvenv.cfg
