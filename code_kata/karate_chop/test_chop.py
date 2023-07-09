@@ -1,12 +1,15 @@
 from unittest import TestCase
 
+from code_kata.karate_chop.methods.fifth_method import chop as fifth_chop
 from code_kata.karate_chop.methods.first_method import chop as first_chop
+from code_kata.karate_chop.methods.fourth_method import chop as fourth_chop
 from code_kata.karate_chop.methods.second_method import chop as second_chop
+from code_kata.karate_chop.methods.third_method import chop as third_chop
 
 
 class FirstMethodTest(TestCase):
     def test_all_cases(self):
-        for method in [first_chop, second_chop]:
+        for method in [first_chop, second_chop, third_chop, fourth_chop, fifth_chop]:
             self.assertEqual(-1, method(3, []))
             self.assertEqual(-1, method(3, [1]))
             self.assertEqual(0, method(1, [1]))
