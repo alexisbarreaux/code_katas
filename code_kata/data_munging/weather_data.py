@@ -1,17 +1,25 @@
-import numpy as np
 import pandas as pd
 
-from code_kata.data_munging.constants import DATA_FOLDER_PATH, WEATHER_FILENAME
+from code_kata.data_munging.common import (
+    get_columns_absolute_difference,
+    get_row_for_smallest_value,
+    load_data_as_dataframe,
+)
+from code_kata.data_munging.constants import WEATHER_FILENAME
 
 
-def process_weather_data():
-    with open(DATA_FOLDER_PATH / WEATHER_FILENAME, "r") as file:
-        df = pd.read_fwf(file)
+def post_process_weather_dataframe(weather_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Specific processing for faulty characters
+    """
+    return weather_df.replace("\*", "", regex=True)
 
-    # Remove faulty characters
-    df.replace("\*", "", inplace=True, regex=True)
 
-    temperature_spread = df["MxT"].astype(float) - df["MnT"].astype(float)
-    smallest_spread_index = np.argmin(temperature_spread)
-
-    return df.loc[smallest_spread_index]["Dy"]
+if __name__ == "__main__":
+    df = load_data_as_dataframe(filename=WEATHER_FILENAME)
+    df = post_process_weather_dataframe(weather_df=df)
+    temperatures_spread = get_columns_absolute_difference(
+        df=df, first_column_name="MxT", second_column_name="MnT"
+    )
+    row = get_row_for_smallest_value(df, temperatures_spread)
+    print(row["Dy"])
