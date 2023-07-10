@@ -14,13 +14,12 @@ Rapide
 
 ## Third method
 
-Chiant, pas mal d'erreurs.
+Moins évident, pas mal d'erreurs.
 
 ## Fourth method
 
-forgot offset and end condition on one element list
 pire des 4
-détruit la liste, donc bof
+détruit la liste, donc peut pertinent dans la plupart des cas à mon avis.
 
 ## Fifth method
 
